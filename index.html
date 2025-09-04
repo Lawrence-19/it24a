@@ -3,31 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
-    <h1>hello World</h1> 
-    
-    <input type="text" 
-            id="inputField" 
-            placeholder="Type something..."
-            oninput="updateDisplay()">
-
-            <h1 id="displayText"> Your text goes here</h1>
-            <h2 id="displayText2"> Your text goes here</h2>
+    <h1><a href = "basic-events.html"> 1. basic Events</a></h1>
 </body>
-<script>
-
-            function updateDisplay() {
-                var inputField = document.getElementById("inputField");
-                var displayText = document.getElementById("displayText");
-                var displayText2 = document.getElementById("displayText2");
-                
-                 
-                displayText.textContent = inputField.value;
-                displayText2.textContent = inputField.value;
-                console.log(inputField.value);
-            }
-            var textbox = document.getElementById("inputField");
-        </script>
 </html>
