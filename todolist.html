@@ -42,8 +42,24 @@
                     document.getElementById("taskList").appendChild(li);
                     console.log("addTaskItem() called ->: " , taskText, Date());
                     
+                    const deleteBtn = createDeletebutton(li);
+                    li.appendChild(deleteBtn);
 
+                }
+                function createDeletebutton(li){
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+                    deleteButton.className = "delete-btn";
+                    deleteButton.style.marginLeft = "8px";
+                    deleteButton.onclick = () => handleDeleteClick(li);
 
+                    console.log("createDeleteButton() called -> ", li.textContent);
+                    return deleteButton;
+                }
+
+                function handleDeleteClick(li){
+                    li.remove();
+                    console.log("handleDeleteClick() called -> ", li.textContent.replace("X","").trim(),Date());
                 }
             </script>
 </body>
