@@ -11,18 +11,38 @@
             id="taskInput" 
             placeholder="Add a task">
             
-            <button oncllick ="addTask()">Add </button>
-
-            <script>
+    <button onclick="addTask()">Add </button>
+    <ul id="taskList">Your task goes here</ul>
+         
+         <script>
                 function addTask() {
-                    getTaskInput();
+                    const taskText = getTaskText();
+
+                    if(taskText){
+                        addTaskItem(taskText);
+                    }else{
+                        console.log("No Task Enetred");
+                    }
+                    
                 }
 
                 function getTaskText() {
-                    const Input = document.getElementById("taskInput");
-                    const text = Input.value.trim();
-                    console.log("getTaskText() called: " + Input.value);
+                    const input = document.getElementById("taskInput");
+                    const text = input.value.trim();
+                    
+                    console.log("getTaskText() called: " + input.value);
                     return text;
+                    
+                }
+
+                function addTaskItem(taskText) {
+                    const li = document.createElement("li");
+                    li.textContent = taskText;
+
+                    document.getElementById("taskList").appendChild(li);
+                    console.log("addTaskItem() called ->: " , taskText, Date());
+                    
+
 
                 }
             </script>
