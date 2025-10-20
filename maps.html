@@ -14,7 +14,11 @@
      crossorigin=""></script>
 
     <style>
-        #map {height: 180px; }
+        #map {height: 500px; }
+        .popup.image{
+            max-width: 200px;
+            height: auto;
+        }
     </style>
 
 </head>
@@ -22,4 +26,20 @@
     <h1>Basic Map</h1>
      <div id="map"></div>
 </body>
+<script>
+
+    var map = L.map('map').setView([8.360066987345094, 124.86809458595978], 17);
+    
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+var marker = L.marker([8.360066987345094, 124.86809458595978]).addTo(map);
+const catImage = "<img src = 'https://media.tenor.com/notUnAjgm8UAAAAM/beluga-cat-meme.gif' class='popup-image'></img>";
+const popupContent = `${catImage}<br><b>Hello world!</br><br>I am popup.`;
+
+marker.bindPopup(popupContent).openPopup();
+
+</script>
 </html>
